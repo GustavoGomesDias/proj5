@@ -9,6 +9,6 @@ app.use(express.json())
 
 app.use("/", router);
 
-app.listen(8686,() => {
-    console.log("Servidor rodando")
+app.listen(8686, () => {
+    console.log("Server is running.");
 });
