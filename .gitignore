@@ -1,2 +1,2 @@
 node_modules
-database/connection.js
+/database/connection.js
