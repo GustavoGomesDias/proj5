@@ -1,6 +1,26 @@
 const User = require("../models/User");
 
 class UserController{
+
+    async index(req, res){
+        const users = await User.findAll();
+        res.json(users);
+        res.status(200);
+    }
+
+    async findUser(req, res){
+        const id = req.params.id;
+        const user = await User.findById(id);
+        
+        if(user == undefined){
+            res.status(404);
+            res.json({});
+        }else{
+            res.status(200);
+            res.json(user);
+        }
+    }
+
     async create(req, res){
         const { email, name, password } = req.body;
 
