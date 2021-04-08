@@ -26,7 +26,6 @@ class User {
         }catch(err){
             console.log(err);
             return [];
-            return undefined
         }
     }
 
@@ -52,6 +51,47 @@ class User {
         }catch(err){
             console.log(err);
             return true;
+        }
+    }
+
+    async update(id, email, name, role){
+        const user = await this.findById(id);
+        let editUser = {};
+        if(user != undefined){
+            
+            if(email != undefined){
+                if(email != user.email){
+                    const result = await this.findEmail(email);
+                    if(!result){
+                        editUser.email = email;
+                    }else{
+                        return {status: false, err: "Email já cadastrado!"};
+                    }
+                }
+            }
+
+            if(name != undefined){
+                editUser.name = name;
+            }
+
+            if(role != undefined){
+                editUser.role = role;
+            }
+
+            try{
+                await knex
+                    .update(editUser)
+                    .where({ id: id })
+                    .table("users");
+
+                return {status: true};
+                
+            }catch(err){
+                return {status: false, err: err};
+            }
+
+        }else{
+            return {status: false, err: "Usuário não existe!"};
         }
     }
 }

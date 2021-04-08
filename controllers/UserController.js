@@ -45,6 +45,24 @@ class UserController{
         res.status(200);
         res.send("Usuário cadastrado!");
     }
+
+    async edit(req, res){
+        const { id, name, role, email } = req.body;
+        const result = await User.update(id, email, name, role);
+
+        if(result != undefined){
+            if(result.status){
+                res.status(200)
+                res.send("Usuário atualizado");
+            }else{
+                res.status(406)
+                res.send(result.err);
+            }
+        }else{
+            res.status(406)
+            res.send(result.err);
+        }
+    }
 };
 
 module.exports = new UserController();
