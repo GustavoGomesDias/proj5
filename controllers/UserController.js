@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const PasswordToken = require("../models/PasswordTokem");
 
 class UserController{
 
@@ -72,6 +73,19 @@ class UserController{
         if(result.status){
             res.status(200);
             res.send("Usuário deletado com sucesso");
+        }else{
+            res.status(406);
+            res.send(result.err);
+        }
+    }
+
+    async recoverPassword(req, res){
+        const email = req.body.email;
+        const result = await PasswordToken.create(email);
+
+        if(result.status){
+            res.status(200);
+            res.send(result.token);
         }else{
             res.status(406);
             res.send(result.err);
