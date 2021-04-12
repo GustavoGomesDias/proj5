@@ -1,5 +1,6 @@
 const knex = require("../database/connection");
 const bcrypt = require("bcrypt");
+const PasswordToken = require("./PasswordToken");
 
 // Poderiamos chamar esse arquivo de Service também
 
@@ -123,6 +124,14 @@ class User {
             console.log(err);
             return [];
         }
+    }
+
+    async changePassword(password, id, token){
+        const hash = await bcrypt.hash(password, 10);
+
+        await knex.update({ password: hash }).where({ id: id }).table("users");
+
+        await PasswordToken.setUsed(token);
     }
 }
 
