@@ -2,8 +2,7 @@ const User = require("../models/User");
 const PasswordToken = require("../models/PasswordToken");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-
-const secret = "smdosdjsdjjsoiaojfjidij";
+const secret = require("../secrets/secret");
 
 class UserController{
 
@@ -134,7 +133,7 @@ class UserController{
                 res.send("Senha incorreta");
             }
         }else{
-
+            res.json({ status: false });
         }
     }
 };
