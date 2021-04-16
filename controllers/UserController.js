@@ -38,6 +38,19 @@ class UserController{
             res.json({ err: "Informações inválidas" });
             return;
         }
+        
+        if(email == undefined || name == undefined || password == undefined){
+            res.status(400);
+            res.json({ err: "Informações inválidas" });
+            return;
+        }
+
+        if(email == " " || name == " " || password == " "){
+            res.status(400);
+            res.json({ err: "Informações inválidas" });
+            return;
+        }
+
         const emailExists = await User.findEmail(email);
         if(emailExists){
             res.status(406);
