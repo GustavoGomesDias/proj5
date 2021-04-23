@@ -6,6 +6,7 @@ API de CRUD completo | Tentando documentar 😎
 1. [O que eu aprendi de novo nesse projeto](https://github.com/GustavoGomesDias/proj5#1--o-que-eu-aprendi-de-novo-nesse-projeto)
 2. [Tecnologias usadas](https://github.com/GustavoGomesDias/proj5#2--tecnologias-usadas)
 3. [Para rodar](https://github.com/GustavoGomesDias/proj5#3--para-rodar-o-projeto)
+4. [Documentação](https://github.com/GustavoGomesDias/proj5/tree/main#4--documenta%C3%A7%C3%A3o)
 5. [Importante](https://github.com/GustavoGomesDias/proj5#5--importante)
 
 ## 1. 🎓 O que eu aprendi de novo nesse projeto
