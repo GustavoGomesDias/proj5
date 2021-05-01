@@ -26,7 +26,7 @@ API de CRUD completo | Tentando documentar 😎
 * JWT;
 * Knex;
   * Mysql2.
-*Uuid.
+* Uuid.
 
 
 ## 3. 🎉 Para rodar o projeto
